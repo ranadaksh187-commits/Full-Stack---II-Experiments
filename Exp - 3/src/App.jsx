@@ -1,80 +1,49 @@
-import { Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
 
-import Login from "./components/Login";
-import Dashboard from "./components/Dashboard";
-import ProtectedRoute from "./components/ProtectedRoute";
-
-import { AuthProvider } from "./context/AuthContext";
-
-import "./App.css";
+import Login from "./pages/Login.jsx";
+import Dashboard from "./pages/Dashboard.jsx";
+import ProtectedRoute from "./auth/ProtectedRoute.jsx";
 
 function App() {
   return (
-    <AuthProvider>
-
+    <BrowserRouter>
       <Routes>
 
-        {/* Login */}
-
+        {/* Default page */}
         <Route
           path="/"
+          element={<Navigate to="/login" replace />}
+        />
+
+        {/* Login */}
+        <Route
+          path="/login"
           element={<Login />}
         />
 
-
-        {/* Viewer / Creator Portal */}
-
+        {/* Protected Dashboard */}
         <Route
-          path="/portal/viewer"
+          path="/dashboard"
           element={
-            <ProtectedRoute
-              allowedRoles={[
-                "viewer",
-                "editor",
-                "admin",
-              ]}
-            >
+            <ProtectedRoute>
               <Dashboard />
             </ProtectedRoute>
           }
         />
 
-
-        {/* Editor Portal */}
-
+        {/* Any unknown URL */}
         <Route
-          path="/portal/editor"
-          element={
-            <ProtectedRoute
-              allowedRoles={[
-                "editor",
-                "admin",
-              ]}
-            >
-              <Dashboard />
-            </ProtectedRoute>
-          }
-        />
-
-
-        {/* Admin Portal */}
-
-        <Route
-          path="/portal/admin"
-          element={
-            <ProtectedRoute
-              allowedRoles={[
-                "admin",
-              ]}
-            >
-              <Dashboard />
-            </ProtectedRoute>
-          }
+          path="*"
+          element={<Navigate to="/login" replace />}
         />
 
       </Routes>
-
-    </AuthProvider>
+    </BrowserRouter>
   );
 }
 
