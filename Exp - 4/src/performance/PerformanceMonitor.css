@@ -1,0 +1,282 @@
+.performance-monitor {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  width: 320px;
+  max-height: calc(100vh - 40px);
+  overflow-y: auto;
+  z-index: 9999;
+
+  background: rgba(255, 255, 255, 0.97);
+  border: 1px solid #e3e7f0;
+  border-radius: 18px;
+
+  padding: 18px;
+
+  box-shadow:
+    0 18px 50px rgba(30, 41, 70, 0.16);
+
+  font-family: Arial, sans-serif;
+}
+
+.performance-monitor__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.performance-monitor__title {
+  font-size: 17px;
+  font-weight: 800;
+  color: #27324a;
+}
+
+.performance-monitor__subtitle {
+  margin-top: 4px;
+  font-size: 10px;
+  color: #8a94a8;
+}
+
+.performance-monitor__status {
+  padding: 6px 9px;
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.performance-monitor__status--optimized {
+  background: #edf0ff;
+  color: #5865df;
+}
+
+.performance-monitor__status--normal {
+  background: #fff0f2;
+  color: #c65368;
+}
+
+/* TOGGLE */
+
+.performance-monitor__toggle {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+  padding: 4px;
+
+  background: #f3f5f9;
+  border-radius: 11px;
+
+  margin-bottom: 16px;
+}
+
+.performance-monitor__toggle button {
+  border: none;
+  border-radius: 8px;
+
+  padding: 9px 5px;
+
+  background: transparent;
+  color: #748096;
+
+  font-size: 10px;
+  font-weight: 800;
+
+  cursor: pointer;
+}
+
+.performance-monitor__toggle button:hover {
+  color: #4e5a72;
+}
+
+.performance-monitor__toggle button.active {
+  background: white;
+  color: #5965df;
+
+  box-shadow:
+    0 2px 8px rgba(30, 41, 70, 0.08);
+}
+
+/* STATS */
+
+.performance-monitor__stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+
+  margin-bottom: 10px;
+}
+
+.performance-monitor__stat {
+  background: #f7f8fb;
+  border: 1px solid #edf0f5;
+
+  border-radius: 11px;
+  padding: 11px;
+}
+
+.performance-monitor__stat span {
+  display: block;
+  color: #8a94a8;
+  font-size: 9px;
+  margin-bottom: 5px;
+}
+
+.performance-monitor__stat strong {
+  font-size: 21px;
+  color: #303b55;
+}
+
+/* ACTION */
+
+.performance-monitor__action {
+  background: #f8f9fc;
+  border: 1px solid #edf0f5;
+
+  border-radius: 10px;
+
+  padding: 10px;
+
+  margin-bottom: 14px;
+}
+
+.performance-monitor__action span {
+  display: block;
+  color: #8a94a8;
+  font-size: 9px;
+  margin-bottom: 4px;
+}
+
+.performance-monitor__action strong {
+  display: block;
+
+  color: #4d5970;
+
+  font-size: 10px;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* COMPONENTS */
+
+.performance-monitor__section-title {
+  font-size: 11px;
+  font-weight: 800;
+
+  color: #59657c;
+
+  margin-bottom: 8px;
+}
+
+.performance-monitor__components {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+
+  max-height: 140px;
+  overflow-y: auto;
+}
+
+.performance-monitor__component {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+
+  background: #fafbfc;
+  border: 1px solid #edf0f4;
+
+  border-radius: 7px;
+
+  padding: 7px 8px;
+
+  color: #59657b;
+  font-size: 9px;
+}
+
+.performance-monitor__component-dot {
+  width: 6px;
+  height: 6px;
+
+  border-radius: 50%;
+
+  background: #6974e8;
+
+  flex-shrink: 0;
+}
+
+.performance-monitor__empty {
+  padding: 12px;
+
+  border-radius: 9px;
+
+  background: #f8f9fc;
+
+  color: #8a94a8;
+
+  font-size: 9px;
+  line-height: 1.5;
+}
+
+/* INFO */
+
+.performance-monitor__info {
+  margin-top: 15px;
+
+  padding-top: 13px;
+
+  border-top: 1px solid #edf0f4;
+}
+
+.performance-monitor__info strong {
+  display: block;
+
+  color: #4c5870;
+
+  font-size: 10px;
+
+  margin-bottom: 5px;
+}
+
+.performance-monitor__info p {
+  margin: 0;
+
+  color: #8993a6;
+
+  font-size: 9px;
+
+  line-height: 1.5;
+}
+
+.performance-monitor__tech {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 5px;
+
+  margin-top: 9px;
+}
+
+.performance-monitor__tech span {
+  background: #eef0ff;
+
+  color: #606bdd;
+
+  border-radius: 999px;
+
+  padding: 4px 7px;
+
+  font-size: 8px;
+  font-weight: 800;
+}
+
+/* MOBILE */
+
+@media (max-width: 900px) {
+  .performance-monitor {
+    right: 10px;
+    bottom: 10px;
+    width: 290px;
+  }
+}
